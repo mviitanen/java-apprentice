@@ -1,0 +1,53 @@
+digraph hierarchy {
+size="7,7"
+node[shape=record,style=filled,fillcolor=gray95]
+edge[dir=back, arrowtail=empty]
+
+        fontname = "Bitstream Vera Sans"
+        fontsize = 20
+
+        node [
+                fontname = "Bitstream Vera Sans"
+                fontsize = 20
+                shape = "record"
+        ]
+
+        edge [
+                fontname = "Bitstream Vera Sans"
+                fontsize = 20
+        ]
+
+SoundEmitter[
+                label = "{SoundEmitter\n\<\<interface\>\>||+ say() : String\1}"
+        ]
+
+        Animal [
+                label = "{Animal\n\<\<abstract\>\>|- owner : LivingCreature\l|+ Animal(String) : \l+ toString() : String\l+ getOwner() : LivingCreature\l+ setOwner(LivingCreature) : void\l }"
+        ]
+       Cat [
+                label = "{Cat||+ Cat() :\l+ say() : String\l+ toString() : String\l}"
+        ]
+       Dog [
+                label = "{Dog||+ Dog() :\l+ say() : String\l+ toString() : String\l}"
+        ]
+       LivingCreature [
+                label = "{LivingCreature\n\<\<abstract\>\>|- name : String\l|+ LivingCreature(String) : \l+ getName() : String\l+ setName(String) : void\l+ say() : String\l+ toString() : String\l}"
+        ]
+       Owner [
+                label = "{Owner||+ Owner() :\l+ say() : String\l+ toString() : String\l}"
+        ]
+       Zoo [
+                label = "{Zoo||+ Zoo() :\l+ doIt() : void\l+ main(String[]) : void\l}"
+        ]
+       Heart [
+                label = "{Heart|- lifeSpan : int\l-beatsPerYear : int\l- age : int\l|+ Heart() :\l+ getLifeSpan() : int\l+ getBeatsPerYear() : int\l+ getYearsToBeat : int\l+ getAge() : int\l}"
+        ]
+
+        SoundEmitter->LivingCreature
+	LivingCreature->Animal
+	Animal->Cat
+	Animal->Dog
+	LivingCreature->Owner
+        LivingCreature->Heart[constraints=false, arrowtail=diamond]
+	Animal->Owner[constraints=false, arrowtail=odiamond]
+}

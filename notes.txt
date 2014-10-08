@@ -1,0 +1,62 @@
+
+
+
+Write your own enum type.  Describe when you would use it.
+
+* Show a typical old way of doing enums
+  * When do you need something like this? 
+    * Types are a good example
+    * If you have several options, as in a switch statement. (flip side: Really think if you should use real types)
+    * Clean label
+    * If the only thing that is different is the type, don't use real types (think of switch with instanceof)
+* http://docs.oracle.com/javase/7/docs/api/java/lang/Enum.html
+  * Java Enums are: serializable, comparable, have a hashCode, equals,  methods
+  * Specialized Set and Map for enum keys
+* Code
+
+
+Write code to show exception handling including examples of checked, unchecked, and Error exceptions
+* Exceptions are for when something unexpected happens
+  * For example: You have an API
+    * No results found
+    * an input parameter is null (throw IllegalArgumentException)
+    * You called another API and they gave you a null 
+    * You called another API and they threw an exception
+    * You want to return an error
+    * What I am trying ot say, never throw NullPointerException (never return a null or take care of nulls early)
+    * Not for controlling flow
+  * Error
+    * Unchecked
+    * Exampels: 
+      * OutOfMemory, StackOverflowError
+      * http://docs.oracle.com/javase/7/docs/api/java/lang/Error.html
+    * Usually stuff you can't do anything about.
+    * Should you evern try to catch it? If you think you can do somethign about it (clean up resources?)
+  * Checked Exceptions
+    * Code won't compile unless they are handled
+    * FileNotFound (IOException)
+  * Unchecked exceptions
+    * Code will compile even if they are not handled
+    * If you think the caller of your method probably won't be able to recover from the exception, use an unchecked exception
+    * NullPointerException
+    * http://docs.oracle.com/javase/7/docs/api/java/lang/RuntimeException.html
+* Code
+    
+
+
+Show how to use a common piece of logic from two different classes, in three different ways: 1) by composition, 2) by inheritance, and 3) by static method calls, discuss the tradeoffs.  For example: two different classes that write a message to a file, one in XML, one in line-oriented text, but both need to reuse logic to open the file in the same way
+* Static
+  * Should-a-avoid-a"
+  * if it is simple, pure, then go ahead. If it is complex, has side effects, please don't
+  * Cannot be easily mocked in unit tests
+* Inheritance
+  * "Is-a"
+* Composition
+  * "Has-a"
+
+  
+
+
+
+Create and overload constructors -- Create a class that has 4 fields and construct the class with variations of one required field and the others are optional.  Use constructor chaining as an example.
+ 

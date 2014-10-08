@@ -1,0 +1,38 @@
+digraph hierarchy {
+size="5,5"
+node[shape=record,style=filled,fillcolor=gray95]
+edge[dir=back, arrowtail=empty]
+
+        fontname = "Bitstream Vera Sans"
+        fontsize = 20
+
+        node [
+                fontname = "Bitstream Vera Sans"
+                fontsize = 20
+                shape = "record"
+        ]
+
+        edge [
+                fontname = "Bitstream Vera Sans"
+                fontsize = 20
+        ]
+
+Error [
+                label = "{Error||}"
+        ]
+
+        Exception [
+                label = "{Exception||}"
+        ]
+       Throwable [
+                label = "{Throwable||+ printStackTrace() : void\l}"
+        ]
+       RuntimeException [
+                label = "{RuntimeException||}"
+        ]
+
+
+        Throwable->Error
+        Throwable->Exception
+	Exception->RuntimeException
+}
