@@ -65,164 +65,14 @@
 
 					<h2>Topics for Today</h2>
 
-<p class="fragment current-grow highlight-blue">Write your own enum type.  Describe when you would use it.</p>
-<p class="fragment current-grow highlight-blue">Write code to show exception handling including examples of checked,
-    unchecked, and Error exceptions.</p>
-<p class="fragment current-grow highlight-blue">Show how to use a common piece of logic from two different classes.</p>
-<p class="fragment current-grow highlight-blue">Create and overload constructors.</p>
-				</section>
-
-
-<section>
-    <h2>Enums: Have You Seen Something Like This?</h2>
-<pre><code class="java">
-    public class PaperType extends AbstractType implements Serializable {
-
-    private static final Map NAME_MAP = new HashMap();
-
-    /**
-    * String constant.
-    */
-    public static final String MALE_STR = "MALE";
-    /**
-    * String constant.
-    */
-    public static final String FEMALE_STR = "FEMALE";
-    /**
-    * String constant.
-    */
-    public static final String COUPLE_STR = "COUPLE";
-    /**
-    * String constant.
-    */
-    public static final String EITHER_STR = "EITHER";
-
-    /**
-    * Male paper type.
-    */
-    public static final PaperType MALE = new PaperType(MALE_STR);
-    /**
-    * Feale paper type.
-    */
-    public static final PaperType FEMALE = new PaperType(FEMALE_STR);
-    /**
-    * Couple paper type.
-    */
-    public static final PaperType COUPLE = new PaperType(COUPLE_STR);
-    /**
-</code></pre>
-</section>
-				<section>
-					<h2>Enums: When to use them?</h2>
-                    <ol>
-                        <li class="fragment " data-fragment-index="1">Types are a good example</li>
-                        <li class="fragment" data-fragment-index="2">If you have several options, as in a switch statement. (flip side: Really think if you should use real types)
-                        <pre><code class="java">if(paperType.equals(org.familysearch.temple.types.PaperType.COUPLE_STR)){
-  // do stuff with couple paper type
-}
-else if(paperType.equals(org.familysearch.temple.types.PaperType.FEMALE_STR)){
-  // do something else
-}</code></pre>
-<pre><code class="java">switch (paperType) {
-  case COUPLE:
-    break;
-  case FEMALE:
-    break;
-}</code></pre></li>
-                        <li class="fragment" data-fragment-index="3">Clean label</li>
-                        <li class="fragment" data-fragment-index="4">If the only thing that is different is the type,
-                            don't use real types (think of switch with instanceof)</li>
-                    </ol>
-				</section>
-				<section>
-					<h2>Enums: Interesting Points</h2>
-                    <ul>
-                        <li class="fragment " data-fragment-index="1"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Enum.html">http://docs.oracle.com/javase/7/docs/api/java/lang/Enum.html</a></li>
-                        <li class="fragment " data-fragment-index="2">serializable, comparable, have a hashCode, equals</li>
-                        <li class="fragment " data-fragment-index="3">Specialized Set and Map for enum keys</li>
-                        </ul>
-                    </section>
-
-
-
-
-                <!-- ==================== EXCEPTIONS ========================= -->
-
-
-                <section>
-                    <h2>Exceptions: How to use them</h2>
-
-                    <h3>Use exceptions only to handle situations when something unexpected happens, not to control
-                        flow</h3>
-
-                    Should you throw an exception when:
-                    <ul>
-                        <li class="fragment " data-fragment-index="1">No results found<span class="fragment "
-                                                                                            data-fragment-index="2">
-                            &nbsp;<b>NO</b></span></li>
-                        <li class="fragment " data-fragment-index="3">an input parameter is null<span class="fragment "
-                                                                                                      data-fragment-index="4">
-                            &nbsp;<b>sure (an IllegalArgumentException)</b></span></li>
-                        <li class="fragment " data-fragment-index="5">You called another API and they gave you a
-                            null<span class="fragment "
-                                      data-fragment-index="6">
-                            &nbsp;<b>NO</b></span></li>
-                        <li class="fragment" data-fragment-index="7">You called another API and they threw an
-                            exception<span class="fragment "
-                                           data-fragment-index="8">
-                            &nbsp;<b>MAYBE</b></span></li>
-                        <li class="fragment " data-fragment-index="9">You want to return an error<span class="fragment "
-                                                                                                       data-fragment-index="10">
-                            &nbsp;<b>NO</b></span></li>
-                        </ul>
-
-                </section>
-                <section>
-                    <h3>Exceptions: Class diagram</h3>
-                    <img src="images/error.png" />
-                </section>
-                <section>
-                    <h3>Exceptions: Checked vs. Unchecked</h3>
-                    <img src="images/error-annotated.png" />
-
-                </section>
-                <section>
-                    <h3>Exceptions: Checked</h3>
-                    <ul>
-                        <li class="fragment " data-fragment-index="1">Handling enforced at compile time</li>
-                        <li class="fragment " data-fragment-index="2">Used when you can expect the client to be able
-                            to do something about the exception</p></li>
-                        <li class="fragment " data-fragment-index="3">FileNotFound (IOException)</li>
-                        </ul>
+                    <p class="fragment current-grow highlight-blue">Show how to use a common piece of logic from two different classes.</p>
+                    <p class="fragment current-grow highlight-blue">Create and overload constructors.</p>
+                    <p class="fragment current-grow highlight-blue">Write your own enum type.  Describe when you would use it.</p>
+                    <p class="fragment current-grow highlight-blue">Write code to show exception handling including examples of checked,
+                        unchecked, and Error exceptions.</p>
                 </section>
 
-                <section>
-                    <h3>Exceptions: Unchecked</h3>
-                    <ul>
 
-                        <li class="fragment " data-fragment-index="1"><b>Not</b> enforced at compile time</li>
-                        <li class="fragment " data-fragment-index="2">Used when you can't expect the client to be abl
-                            e to do something about the exception</li>
-                        <li class="fragment " data-fragment-index="3">NullPointerException (Don't ever use this)</li>
-                        <li class="fragment " data-fragment-index="4"><a
-                                href="http://docs.oracle.com/javase/7/docs/api/java/lang/RuntimeException.html">Docs</a></li>
-                        </ul>
-                </section>
-
-                <section>
-                    <h3>Exceptions: Error</h3>
-                    <ul>
-                        <li class="fragment " data-fragment-index="1">Unchecked</li>
-                        <li class="fragment " data-fragment-index="2">OutOfMemory, StackOverflowError</li>
-                        <li class="fragment "
-                            data-fragment-index="3"><a href="http://docs.oracle
-                            .com/javase/7/docs/api/java/lang/Error.html">Docs</a></li>
-                        <li class="fragment " data-fragment-index="4">Usually stuff you can't do anything about.
-                            Hardware things.</li>
-                        <li class="fragment " data-fragment-index="5">Should you even try to catch it? If you think
-                            you can do something about it (clean up resources?)</li>
-                        </ul>
-                </section>
 
                 <section>
                     <h3>Classes: Inheritance</h3>
@@ -286,7 +136,159 @@ else if(paperType.equals(org.familysearch.temple.types.PaperType.FEMALE_STR)){
 
                     </ul>
                 </section>
-			</div>
+
+                <section>
+                    <h2>Enums: Have You Seen Something Like This?</h2>
+<pre><code class="java">
+    public class PaperType extends AbstractType implements Serializable {
+
+    private static final Map NAME_MAP = new HashMap();
+
+    /**
+    * String constant.
+    */
+    public static final String MALE_STR = "MALE";
+    /**
+    * String constant.
+    */
+    public static final String FEMALE_STR = "FEMALE";
+    /**
+    * String constant.
+    */
+    public static final String COUPLE_STR = "COUPLE";
+    /**
+    * String constant.
+    */
+    public static final String EITHER_STR = "EITHER";
+
+    /**
+    * Male paper type.
+    */
+    public static final PaperType MALE = new PaperType(MALE_STR);
+    /**
+    * Feale paper type.
+    */
+    public static final PaperType FEMALE = new PaperType(FEMALE_STR);
+    /**
+    * Couple paper type.
+    */
+    public static final PaperType COUPLE = new PaperType(COUPLE_STR);
+    /**
+</code></pre>
+                </section>
+                <section>
+                    <h2>Enums: When to use them?</h2>
+                    <ol>
+                        <li class="fragment " data-fragment-index="1">Types are a good example</li>
+                        <li class="fragment" data-fragment-index="2">If you have several options, as in a switch statement. (flip side: Really think if you should use real types)
+                        <pre><code class="java">if(paperType.equals(org.familysearch.temple.types.PaperType.COUPLE_STR)){
+                            // do stuff with couple paper type
+                            }
+                            else if(paperType.equals(org.familysearch.temple.types.PaperType.FEMALE_STR)){
+                            // do something else
+                            }</code></pre>
+<pre><code class="java">switch (paperType) {
+    case COUPLE:
+    break;
+    case FEMALE:
+    break;
+    }</code></pre></li>
+                        <li class="fragment" data-fragment-index="3">Clean label</li>
+                        <li class="fragment" data-fragment-index="4">If the only thing that is different is the type,
+                            don't use real types (think of switch with instanceof)</li>
+                    </ol>
+                </section>
+                <section>
+                    <h2>Enums: Interesting Points</h2>
+                    <ul>
+                        <li class="fragment " data-fragment-index="1"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Enum.html">http://docs.oracle.com/javase/7/docs/api/java/lang/Enum.html</a></li>
+                        <li class="fragment " data-fragment-index="2">serializable, comparable, have a hashCode, equals</li>
+                        <li class="fragment " data-fragment-index="3">Specialized Set and Map for enum keys</li>
+                    </ul>
+                </section>
+
+
+
+
+                <!-- ==================== EXCEPTIONS ========================= -->
+
+
+                <section>
+                    <h2>Exceptions: How to use them</h2>
+
+                    <h3>Use exceptions only to handle situations when something unexpected happens, not to control
+                        flow</h3>
+
+                    Should you throw an exception when:
+                    <ul>
+                        <li class="fragment " data-fragment-index="1">No results found<span class="fragment "
+                                                                                            data-fragment-index="2">
+                            &nbsp;<b>NO</b></span></li>
+                        <li class="fragment " data-fragment-index="3">an input parameter is null<span class="fragment "
+                                                                                                      data-fragment-index="4">
+                            &nbsp;<b>sure (an IllegalArgumentException)</b></span></li>
+                        <li class="fragment " data-fragment-index="5">You called another API and they gave you a
+                            null<span class="fragment "
+                                      data-fragment-index="6">
+                            &nbsp;<b>NO</b></span></li>
+                        <li class="fragment" data-fragment-index="7">You called another API and they threw an
+                            exception<span class="fragment "
+                                           data-fragment-index="8">
+                            &nbsp;<b>MAYBE</b></span></li>
+                        <li class="fragment " data-fragment-index="9">You want to return an error<span class="fragment "
+                                                                                                       data-fragment-index="10">
+                            &nbsp;<b>NO</b></span></li>
+                    </ul>
+
+                </section>
+                <section>
+                    <h3>Exceptions: Class diagram</h3>
+                    <img src="images/error.png" />
+                </section>
+                <section>
+                    <h3>Exceptions: Checked vs. Unchecked</h3>
+                    <img src="images/error-annotated.png" />
+
+                </section>
+                <section>
+                    <h3>Exceptions: Checked</h3>
+                    <ul>
+                        <li class="fragment " data-fragment-index="1">Handling enforced at compile time</li>
+                        <li class="fragment " data-fragment-index="2">Used when you can expect the client to be able
+                            to do something about the exception</p></li>
+                        <li class="fragment " data-fragment-index="3">FileNotFound (IOException)</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h3>Exceptions: Unchecked</h3>
+                    <ul>
+
+                        <li class="fragment " data-fragment-index="1"><b>Not</b> enforced at compile time</li>
+                        <li class="fragment " data-fragment-index="2">Used when you can't expect the client to be abl
+                            e to do something about the exception</li>
+                        <li class="fragment " data-fragment-index="3">NullPointerException (Don't ever use this)</li>
+                        <li class="fragment " data-fragment-index="4"><a
+                                href="http://docs.oracle.com/javase/7/docs/api/java/lang/RuntimeException.html">Docs</a></li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h3>Exceptions: Error</h3>
+                    <ul>
+                        <li class="fragment " data-fragment-index="1">Unchecked</li>
+                        <li class="fragment " data-fragment-index="2">OutOfMemory, StackOverflowError</li>
+                        <li class="fragment "
+                            data-fragment-index="3"><a href="http://docs.oracle
+                            .com/javase/7/docs/api/java/lang/Error.html">Docs</a></li>
+                        <li class="fragment " data-fragment-index="4">Usually stuff you can't do anything about.
+                            Hardware things.</li>
+                        <li class="fragment " data-fragment-index="5">Should you even try to catch it? If you think
+                            you can do something about it (clean up resources?)</li>
+                    </ul>
+                </section>
+
+            </div>
 		</div>
 
 		<script src="lib/js/head.min.js"></script>
