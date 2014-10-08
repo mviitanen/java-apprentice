@@ -70,6 +70,14 @@
                     <p class="fragment current-grow highlight-blue">Write your own enum type.  Describe when you would use it.</p>
                     <p class="fragment current-grow highlight-blue">Write code to show exception handling including examples of checked,
                         unchecked, and Error exceptions.</p>
+                    <aside class="notes">
+                        <ul>
+                            <li>Often in classes like this, we talk about things you could do.</li>
+                            <li>I will try to also mention things you should do</li>
+                            <li>A lot to cover</li>
+                            <li>Just stop me if you don't understand something</li>
+                        </ul>
+                    </aside>
                 </section>
 
 
@@ -83,6 +91,13 @@
                             protected attributes and methods of the parent.</li>
                         <li class="fragment " data-fragment-index="4">Child cannot access the private stuff.</li>
                     </ul>
+                    <aside class="notes">
+                        <ul>
+                            <li>You shouldn't try to model your software exactly like the natural world.</li>
+                            <li>Here we just use dummy examples that are familiar, but they might not always be
+                                the best. Just to demonstrate inheritance, etc.</li>
+                        </ul>
+                    </aside>
                 </section>
                 <section>
                     <h3>Classes: Composition</h3>
@@ -111,6 +126,14 @@
             <section>
                 <h2>Classes: class Diagram</h2>
                 <img src="images/zoo.png" />
+                <aside class="notes">
+                    <ul>
+                        <li>Point out the UML notation (arrows)</li>
+                        <li>Didn't draw lines from Zoo (clutter)</li>
+                        <li>say() overridden</li>
+                        <li>Code</li>
+                    </ul>
+                </aside>
             </section>
 
                 <section>
@@ -135,6 +158,7 @@
                             reference null)</li>
 
                     </ul>
+
                 </section>
 
                 <section>
@@ -323,7 +347,10 @@
 					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
 					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
 					{ src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
-					{ src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+					{ src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } },
+        { src: 'socket.io/socket.io.js', async: true },
+        { src: 'plugin/notes-server/client.js', async: true }
+    
 				]
 			});
 
